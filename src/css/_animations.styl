@@ -1,0 +1,60 @@
+/*
+  Possible Animations:
+  enter
+  exit
+  appear Must set transitionAppear={true} on animation component
+*/
+
+/* The following code is written in Stylus, which runs based on indentations, so exactly the same as scss but doesnt use ; : and {}*/
+
+/*how to compile? since stylus is a preprocessor you cannot use any custom css preprocessor in your webpack build so therefore we need to do smething called 'eject', to do this we need to open up package.json. There need to activate command that triggers CSS compiling outside of the react app */
+
+.order-enter
+  transform: translateX(-120%)
+  transition 0.5s
+  max-height: 0
+  padding 0
+  &.order-enter-active
+    max-height: 60px
+    transform: translateX(0)
+    padding 2rem 0
+
+/*padding is what takes care of making it grow bigger as it enters and become smaller as it exits*/
+
+.order-exit
+  transform: translateX(0)
+  transition 0.5s
+  &.order-exit-active 
+    transform: translateX(+120%)
+    padding 0
+
+
+.count-enter
+  transition 0.5s
+  transform translateY(100%)
+  &.count-enter-active
+    transform translateY(0)
+
+/*position absolute, left 0 bottom 0 ensures the number pushes the previous number up as it loads on screen. TranslateX means it moves horizontally, translateY means vertically*/
+.count-exit
+  transform translateY(0)
+  transition 0.5s
+  position absolute
+  left 0
+  bottom 0
+  &.count-exit-active
+    transform translateY(-100%)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
